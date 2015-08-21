@@ -8,5 +8,8 @@ BugReports: https://github.com/paulhendricks/detector/issues
 Depends: R (>= 3.1.2)
 License: MIT + file LICENSE
 LazyData: true
+Imports:
+    stringr
 Suggests:
-    testthat
+    testthat,
+    generator

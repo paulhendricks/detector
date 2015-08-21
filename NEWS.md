@@ -1,4 +1,4 @@
-# anonymizer 0.1.0
+# detector 0.1.0
 
 ## Improvements
 
