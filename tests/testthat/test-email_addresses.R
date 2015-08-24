@@ -1,5 +1,6 @@
+library(generator)
 library(detector)
-context("is_email_address()")
+context("email addresses")
 
 test_that("Produces the correct output.", {
   expect_equal(is_email_address("hello"), FALSE)

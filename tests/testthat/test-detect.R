@@ -5,7 +5,8 @@ context("detect()")
 test_df <-
   data.frame(phone_number = r_phone_numbers(1000),
              email_address = r_email_addresses(1000),
-             mixed = c(r_phone_numbers(500), r_email_addresses(500)),
+             national_identification_number = r_national_identification_numbers(1000),
+             mixed = c(r_phone_numbers(300), r_email_addresses(200), r_national_identification_numbers(500)),
              stringsAsFactors = FALSE)
 
 test_that("Produces the correct output.", {

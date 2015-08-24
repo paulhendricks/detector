@@ -20,6 +20,6 @@ is_email_address <- function(.x) {
 #' @export
 has_email_addresses <- function(.x) {
   result <- any(vapply(.x, is_email_address, logical(1)))
-  if(result) message("E-mail addresses detected.")
+  if(result) message("E-mail addresses possibly detected.")
   return(result)
 }
