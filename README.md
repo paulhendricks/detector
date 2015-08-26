@@ -4,7 +4,7 @@ detector
 
 [![Build Status](https://travis-ci.org/paulhendricks/detector.png?branch=master)](https://travis-ci.org/paulhendricks/detector) [![Build status](https://ci.appveyor.com/api/projects/status/gu5ggnr1i2muw5r3/branch/master?svg=true)](https://ci.appveyor.com/project/paulhendricks/detector/branch/master) [![codecov.io](http://codecov.io/github/paulhendricks/detector/coverage.svg?branch=master)](http://codecov.io/github/paulhendricks/detector?branch=master) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/detector)](http://cran.r-project.org/package=detector) [![Downloads from the RStudio CRAN mirror](http://cranlogs.r-pkg.org/badges/detector)](http://cran.rstudio.com/package=detector) [![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/0.1.0/active.svg)](http://www.repostatus.org/#active)
 
-`detector` detects data containing Personally Identifiable Information. `detector` detects the following types of PII:
+`detector` detects data containing Personally Identifiable Information. Once complete, `detector` will be able to detect the following types of PII:
 
 -   Full name
 -   Home address
@@ -19,6 +19,30 @@ detector
 -   Date of birth
 -   Birthplace
 -   Telephone number
+-   Latitude and longtiude
+
+State of the Union
+------------------
+
+### Complete!
+
+-   E-mail address
+-   Telephone number
+
+### Needs more work...
+
+-   National identification number
+-   Credit card number
+
+### Haven't even started :(
+
+-   Full name
+-   Date of birth
+-   Home address
+-   IP address
+-   Vehicle registration plate number
+-   Driver's license number
+-   Birthplace
 -   Latitude and longtiude
 
 Installation
@@ -52,8 +76,9 @@ API
 library(generator)
 library(detector)
 r_full_names(5)
-#> [1] "Karmen Bednar"   "Spencer Frami"   "Denice O'Reilly" "Margie Larson"  
-#> [5] "Krystle Mills"
+#> [1] "Hank Schuster"          "Christopher McLaughlin"
+#> [3] "Pablo Dietrich"         "Kory Cartwright"       
+#> [5] "Paris Herman"
 ```
 
 ### Home address
@@ -66,15 +91,16 @@ r_full_names(5)
 
 ``` r
 r_email_addresses(5)
-#> [1] "jehaodygp@y.nkc"      "xlf@ioxnhgmj.tjf"     "zpbrangdxe@dy.cbo"   
-#> [4] "jyupabi@pk.igm"       "pgoqm@gqhfimdjtc.rkv"
+#> [1] "tdro@ury.tzd"             "sfyjk@dh.lwj"            
+#> [3] "r@jr.xbn"                 "coqevzfbum@rxs.cqi"      
+#> [5] "gwjlokite@gmdrnbxtwk.jbh"
 ```
 
 ### National identification number
 
 ``` r
 r_national_identification_numbers(5)
-#> [1] "128-69-2982" "152-73-5421" "475-13-1574" "534-52-9322" "195-41-8348"
+#> [1] "771-72-3977" "455-62-9351" "839-27-2363" "556-21-9498" "353-34-9258"
 ```
 
 ### Passport number
@@ -87,8 +113,8 @@ r_national_identification_numbers(5)
 
 ``` r
 r_ipv4_addresses(5)
-#> [1] "39.49.42.17"   "89.85.189.11"  "126.105.4.89"  "108.126.135.4"
-#> [5] "87.121.25.250"
+#> [1] "203.110.166.205" "121.119.203.26"  "174.44.163.63"   "138.15.60.27"   
+#> [5] "223.182.38.106"
 ```
 
 ### Vehicle registration plate number
@@ -113,7 +139,7 @@ r_ipv4_addresses(5)
 
 ``` r
 r_date_of_births(5)
-#> [1] "1970-11-16" "1985-02-18" "1996-02-27" "1943-04-01" "1994-09-18"
+#> [1] "1975-11-19" "1932-12-20" "1916-07-07" "1961-06-08" "1996-03-11"
 ```
 
 ### Birth place
@@ -126,25 +152,25 @@ r_date_of_births(5)
 
 ``` r
 r_phone_numbers(5)
-#> [1] "1431851896" "2575416724" "9568911359" "8736923984" "2487468652"
+#> [1] "5488613597" "7826874738" "8538621825" "8249481364" "5377132681"
 r_phone_numbers(5, use_hyphens = TRUE)
-#> [1] "352-325-6941" "692-349-6147" "216-465-4985" "634-159-9518"
-#> [5] "487-651-9247"
+#> [1] "597-675-1637" "587-127-4798" "426-521-8671" "769-926-9258"
+#> [5] "634-682-7259"
 r_phone_numbers(5, use_hyphens = TRUE, use_parentheses = TRUE)
-#> [1] "(372)-183-9215" "(762)-257-8324" "(386)-576-4317" "(267)-791-2983"
-#> [5] "(617)-873-4125"
+#> [1] "(934)-743-6982" "(137)-843-7168" "(682)-358-6372" "(721)-128-9751"
+#> [5] "(321)-267-2538"
 r_phone_numbers(5, use_spaces = TRUE, use_parentheses = TRUE)
-#> [1] "(634) 236 1497" "(413) 297 2671" "(168) 967 2367" "(158) 816 5791"
-#> [5] "(537) 842 6935"
+#> [1] "(573) 537 7859" "(417) 542 7632" "(536) 482 1458" "(961) 532 1679"
+#> [5] "(425) 764 7239"
 ```
 
 ### Latitude and longitude
 
 ``` r
 paste0(r_latitudes(5), ", ", r_longitudes(5))
-#> [1] "-73.067482416518, -104.314013170078"
-#> [2] "88.9137310814112, -15.8717418462038"
-#> [3] "56.5625602053478, -148.709579715505"
-#> [4] "86.3537995750085, -47.805242696777" 
-#> [5] "15.0920796766877, -24.3693446181715"
+#> [1] "-59.7058214200661, -41.9136194698513"
+#> [2] "-23.6809349711984, -103.932275734842"
+#> [3] "4.49493970256299, 106.133092185482"  
+#> [4] "-19.7637852095068, -124.97579164803" 
+#> [5] "50.270229158923, 137.946051545441"
 ```

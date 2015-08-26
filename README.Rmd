@@ -23,7 +23,7 @@ knitr::opts_chunk$set(
 [![Downloads from the RStudio CRAN mirror](http://cranlogs.r-pkg.org/badges/detector)](http://cran.rstudio.com/package=detector)
 [![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/0.1.0/active.svg)](http://www.repostatus.org/#active)
 
-`detector` detects data containing Personally Identifiable Information. `detector` detects the following types of PII:
+`detector` detects data containing Personally Identifiable Information. Once complete, `detector` will be able to detect the following types of PII:
 
 * Full name
 * Home address
@@ -39,6 +39,29 @@ knitr::opts_chunk$set(
 * Birthplace
 * Telephone number
 * Latitude and longtiude
+
+## State of the Union
+
+### Complete!
+
+* E-mail address 
+* Telephone number 
+
+### Needs more work...
+
+* National identification number
+* Credit card number
+
+### Haven't even started :(
+
+* Full name
+* Date of birth
+* Home address
+* IP address
+* Vehicle registration plate number
+* Driver's license number
+* Birthplace
+* Latitude and longtiude 
 
 ## Installation
 
