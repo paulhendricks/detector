@@ -4,7 +4,7 @@ detector
 
 [![Build Status](https://travis-ci.org/paulhendricks/detector.png?branch=master)](https://travis-ci.org/paulhendricks/detector) [![Build status](https://ci.appveyor.com/api/projects/status/gu5ggnr1i2muw5r3/branch/master?svg=true)](https://ci.appveyor.com/project/paulhendricks/detector/branch/master) [![codecov.io](http://codecov.io/github/paulhendricks/detector/coverage.svg?branch=master)](http://codecov.io/github/paulhendricks/detector?branch=master) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/detector)](http://cran.r-project.org/package=detector) [![Downloads from the RStudio CRAN mirror](http://cranlogs.r-pkg.org/badges/detector)](http://cran.rstudio.com/package=detector) [![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/0.1.0/active.svg)](http://www.repostatus.org/#active)
 
-`detector` detects data containing Personally Identifiable Information. Once complete, `detector` will be able to detect the following types of PII:
+`detector` makes detecting data containing Personally Identifiable Information quick, easy, and scalable. It provides high-level functions that can take vectors and data.frames and return important summary statistics in a convenient data.frame. Once complete, `detector` will be able to detect the following types of PII:
 
 -   Full name
 -   Home address
@@ -76,9 +76,8 @@ API
 library(generator)
 library(detector)
 r_full_names(5)
-#> [1] "Hank Schuster"          "Christopher McLaughlin"
-#> [3] "Pablo Dietrich"         "Kory Cartwright"       
-#> [5] "Paris Herman"
+#> [1] "Vina McCullough"  "Allen Altenwerth" "Teddy Dibbert"   
+#> [4] "Vella Hickle"     "Tommie Will"
 ```
 
 ### Home address
@@ -91,16 +90,16 @@ r_full_names(5)
 
 ``` r
 r_email_addresses(5)
-#> [1] "tdro@ury.tzd"             "sfyjk@dh.lwj"            
-#> [3] "r@jr.xbn"                 "coqevzfbum@rxs.cqi"      
-#> [5] "gwjlokite@gmdrnbxtwk.jbh"
+#> [1] "lycnf@ch.zdv"           "fdwphzqrvb@sznxiek.dfb"
+#> [3] "ozdprjfi@ychzqpjgk.twg" "xyr@fl.ozi"            
+#> [5] "kpstj@bxk.xhk"
 ```
 
 ### National identification number
 
 ``` r
 r_national_identification_numbers(5)
-#> [1] "771-72-3977" "455-62-9351" "839-27-2363" "556-21-9498" "353-34-9258"
+#> [1] "993-83-6350" "962-63-3630" "977-17-9740" "665-13-9402" "740-92-8287"
 ```
 
 ### Passport number
@@ -113,8 +112,8 @@ r_national_identification_numbers(5)
 
 ``` r
 r_ipv4_addresses(5)
-#> [1] "203.110.166.205" "121.119.203.26"  "174.44.163.63"   "138.15.60.27"   
-#> [5] "223.182.38.106"
+#> [1] "37.50.236.127"   "98.207.202.224"  "20.111.43.96"    "135.127.206.183"
+#> [5] "185.188.108.36"
 ```
 
 ### Vehicle registration plate number
@@ -139,7 +138,7 @@ r_ipv4_addresses(5)
 
 ``` r
 r_date_of_births(5)
-#> [1] "1975-11-19" "1932-12-20" "1916-07-07" "1961-06-08" "1996-03-11"
+#> [1] "1961-11-29" "1939-11-14" "1969-08-30" "1966-07-18" "1997-06-24"
 ```
 
 ### Birth place
@@ -152,25 +151,25 @@ r_date_of_births(5)
 
 ``` r
 r_phone_numbers(5)
-#> [1] "5488613597" "7826874738" "8538621825" "8249481364" "5377132681"
+#> [1] "4954267164" "6747642153" "2847538794" "7417597219" "2869244598"
 r_phone_numbers(5, use_hyphens = TRUE)
-#> [1] "597-675-1637" "587-127-4798" "426-521-8671" "769-926-9258"
-#> [5] "634-682-7259"
+#> [1] "597-689-6932" "859-136-1983" "243-279-6251" "437-415-6894"
+#> [5] "542-812-1236"
 r_phone_numbers(5, use_hyphens = TRUE, use_parentheses = TRUE)
-#> [1] "(934)-743-6982" "(137)-843-7168" "(682)-358-6372" "(721)-128-9751"
-#> [5] "(321)-267-2538"
+#> [1] "(975)-896-2918" "(594)-982-3428" "(795)-493-8762" "(532)-124-1837"
+#> [5] "(927)-219-6481"
 r_phone_numbers(5, use_spaces = TRUE, use_parentheses = TRUE)
-#> [1] "(573) 537 7859" "(417) 542 7632" "(536) 482 1458" "(961) 532 1679"
-#> [5] "(425) 764 7239"
+#> [1] "(275) 253 2573" "(536) 798 3981" "(352) 152 8759" "(625) 618 1572"
+#> [5] "(937) 721 4598"
 ```
 
 ### Latitude and longitude
 
 ``` r
 paste0(r_latitudes(5), ", ", r_longitudes(5))
-#> [1] "-59.7058214200661, -41.9136194698513"
-#> [2] "-23.6809349711984, -103.932275734842"
-#> [3] "4.49493970256299, 106.133092185482"  
-#> [4] "-19.7637852095068, -124.97579164803" 
-#> [5] "50.270229158923, 137.946051545441"
+#> [1] "-44.9766171723604, -139.395375642926"
+#> [2] "87.7084461785853, -162.919728532434" 
+#> [3] "10.4892638325691, -173.305471837521" 
+#> [4] "70.7030830672011, -159.101521018893" 
+#> [5] "-62.2944462765008, 78.6378676537424"
 ```
