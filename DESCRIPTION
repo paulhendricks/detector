@@ -11,5 +11,4 @@ LazyData: true
 Imports:
     stringr
 Suggests:
-    testthat,
-    generator
+    testthat
