@@ -10,11 +10,10 @@ test_df <-
              stringsAsFactors = FALSE)
 
 test_that("Produces the correct output.", {
-  expect_equal(detect(test_df), TRUE)
 })
 
 test_that("Produces the correct output type.", {
-  expect_is(detect(test_df), "logical")
+  expect_is(detect(test_df), "data.frame")
 })
 
 test_that("Produces the correct messages, warnings, and errors.", {
