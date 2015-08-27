@@ -12,7 +12,11 @@ detect <- function(.x) {
 #' @describeIn detect Method for character vectors.
 #' @export
 detect.character <- function(.x) {
-  return(ldply(tests_nonnumeric, function(test) data.frame(case = test(.x), stringsAsFactors = FALSE), .id = "test"))
+  tests <-
+    list("has_email" = has_email_addresses,
+         "has_phone" = has_phone_numbers,
+         "has_ssn" = has_national_identification_numbers)
+  return(vapply(tests, function(test) test(.x), logical(1)))
 }
 
 #' @describeIn detect Method for factor vectors.
@@ -24,27 +28,15 @@ detect.factor <- function(.x) {
 #' @describeIn detect Method for numeric vectors.
 #' @export
 detect.numeric <- function(.x) {
-  return(any(vapply(tests, function(test) test(.x), logical(1))))
-}
-
-detect_column <- function(column_name, .y) {
-  message(paste0("Testing column: ", column_name))
-  return(detect(.y[, column_name]))
+  return(detect(as.character(.x)))
 }
 
 #' @describeIn detect Method for data.frames.
 #' @export
 detect.data.frame <- function(.x) {
-
-
-
-  return(any(vapply(names(.x), detect_column, .y = .x, logical(1))))
+  temp <- data.frame(column_name = colnames(.x), stringsAsFactors = FALSE)
+  temp[, "has_email_addresses"] <- unname(vapply(.x, has_email_addresses, logical(1)))
+  temp[, "has_phone_numbers"] <- unname(vapply(.x, has_phone_numbers, logical(1)))
+  temp[, "has_national_identification_numbers"] <- unname(vapply(.x, has_national_identification_numbers, logical(1)))
+  return(temp)
 }
-
-tests_nonnumeric <-
-  list("has_email" = has_email_addresses,
-       "has_phone" = has_phone_numbers,
-       "has_ssn" = has_national_identification_numbers)
-
-tests_numeric <-
-  list("has_phone" = has_phone_numbers)
