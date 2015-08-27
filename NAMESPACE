@@ -2,8 +2,7 @@
 
 S3method(detect,character)
 S3method(detect,data.frame)
-S3method(detect,factor)
-S3method(detect,numeric)
+S3method(detect,default)
 export(detect)
 export(has_email_addresses)
 export(has_national_identification_numbers)

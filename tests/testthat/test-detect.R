@@ -13,6 +13,7 @@ test_that("Produces the correct output.", {
 })
 
 test_that("Produces the correct output type.", {
+  expect_is(detect(letters), "data.frame")
   expect_is(detect(test_df), "data.frame")
 })
 

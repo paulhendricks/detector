@@ -4,17 +4,14 @@
 \alias{detect}
 \alias{detect.character}
 \alias{detect.data.frame}
-\alias{detect.factor}
-\alias{detect.numeric}
+\alias{detect.default}
 \title{Detect if a data object contains PII.}
 \usage{
 detect(.x)
 
+\method{detect}{default}(.x)
+
 \method{detect}{character}(.x)
-
-\method{detect}{factor}(.x)
-
-\method{detect}{numeric}(.x)
 
 \method{detect}{data.frame}(.x)
 }
@@ -29,15 +26,18 @@ Detect if a data object contains PII.
 }
 \section{Methods (by class)}{
 \itemize{
+\item \code{default}: Method for default vectors.
+
 \item \code{character}: Method for character vectors.
-
-\item \code{factor}: Method for factor vectors.
-
-\item \code{numeric}: Method for numeric vectors.
 
 \item \code{data.frame}: Method for data.frames.
 }}
 \examples{
-# Examples
+# atomic vectors
+detect(letters)
+detect(1:10)
+
+# data.frames
+detect(mtcars)
 }
 

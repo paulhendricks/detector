@@ -3,40 +3,41 @@
 #' @param .x A data object.
 #' @return A logical value indicating if that data object contains PII.
 #' @examples
-#' # Examples
+#' # atomic vectors
+#' detect(letters)
+#' detect(1:10)
+#'
+#' # data.frames
+#' detect(mtcars)
 #' @export
 detect <- function(.x) {
   UseMethod("detect")
 }
 
+#' @describeIn detect Method for default vectors.
+#' @export
+detect.default <- function(.x) {
+  return(detect(as.character(.x)))
+}
+
 #' @describeIn detect Method for character vectors.
 #' @export
 detect.character <- function(.x) {
-  tests <-
-    list("has_email" = has_email_addresses,
-         "has_phone" = has_phone_numbers,
-         "has_ssn" = has_national_identification_numbers)
-  return(vapply(tests, function(test) test(.x), logical(1)))
+  temp <- data.frame()
+  temp[1, "has_email_addresses"] <- has_email_addresses(.x)
+  temp[, "has_phone_numbers"] <- has_phone_numbers(.x)
+  temp[, "has_national_identification_numbers"] <- has_national_identification_numbers(.x)
+  return(temp)
 }
 
-#' @describeIn detect Method for factor vectors.
-#' @export
-detect.factor <- function(.x) {
-  return(detect(as.character(.x)))
-}
-
-#' @describeIn detect Method for numeric vectors.
-#' @export
-detect.numeric <- function(.x) {
-  return(detect(as.character(.x)))
+detect_column <- function(.nm, .df) {
+  return(cbind(data.frame(column_name = .nm, stringsAsFactors = FALSE), detect(.df[, .nm])))
 }
 
 #' @describeIn detect Method for data.frames.
 #' @export
 detect.data.frame <- function(.x) {
-  temp <- data.frame(column_name = colnames(.x), stringsAsFactors = FALSE)
-  temp[, "has_email_addresses"] <- unname(vapply(.x, has_email_addresses, logical(1)))
-  temp[, "has_phone_numbers"] <- unname(vapply(.x, has_phone_numbers, logical(1)))
-  temp[, "has_national_identification_numbers"] <- unname(vapply(.x, has_national_identification_numbers, logical(1)))
-  return(temp)
+  temp <- lapply(colnames(.x), detect_column, .df = .x)
+  return(do.call(rbind, temp))
+
 }
