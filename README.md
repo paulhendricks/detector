@@ -81,20 +81,20 @@ ashley_madison <-
   data.frame(name = r_full_names(n), 
              email = r_email_addresses(n), 
              phone_number = r_phone_numbers(n, use_hyphens = TRUE, 
-                                            use_parentheses = TRUE), 
+                                            use_spaces = TRUE), 
              stringsAsFactors = FALSE)
 ashley_madison %>% 
   knitr::kable(format = "markdown")
 ```
 
-| name           | email                   | phone\_number  |
-|:---------------|:------------------------|:---------------|
-| Luigi Tromp    | <iearsx@xqntpvmlgd.ybg> | (879)-213-1327 |
-| Nicole Erdman  | <w@qfiuw.ueq>           | (598)-198-7935 |
-| Freida Senger  | <hwt@npzwest.kdz>       | (941)-681-7942 |
-| Mason Hermann  | <j@zdpaule.cor>         | (546)-681-9843 |
-| Jarred Sanford | <huqmeok@lmqd.uhq>      | (546)-645-8927 |
-| Tynisha Lesch  | <oaemi@rpiytegbdk.ryh>  | (287)-249-7526 |
+| name                 | email                      | phone\_number  |
+|:---------------------|:---------------------------|:---------------|
+| Ula Emard            | <snhptwgvr@zb.cij>         | 268- 273- 6378 |
+| Cody Walter          | <mpifzlvsd@sgvatwzdru.bkz> | 536- 472- 2351 |
+| Georgianna Feil      | <tespuig@ajho.waz>         | 963- 137- 9182 |
+| Antonette Vandervort | <jfmlon@sptubkmwdr.yjl>    | 935- 795- 2857 |
+| Elliot Toy           | <pokzuvywi@zhdouawyip.yof> | 427- 259- 1659 |
+| Refugio Anderson     | <pahi@rahyni.wmv>          | 897- 874- 2865 |
 
 Detect data containing PII
 --------------------------
@@ -110,4 +110,4 @@ ashley_madison %>%
 |:--------------|:----------------------|:--------------------|:---------------------------------------|
 | name          | FALSE                 | FALSE               | FALSE                                  |
 | email         | TRUE                  | FALSE               | FALSE                                  |
-| phone\_number | FALSE                 | FALSE               | FALSE                                  |
+| phone\_number | FALSE                 | TRUE                | FALSE                                  |
