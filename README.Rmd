@@ -46,10 +46,10 @@ knitr::opts_chunk$set(
 
 * E-mail address 
 * Telephone number 
+* National identification number
 
 ### Needs more work...
 
-* National identification number
 * Credit card number
 
 ### Haven't even started :(

@@ -28,10 +28,10 @@ State of the Union
 
 -   E-mail address
 -   Telephone number
+-   National identification number
 
 ### Needs more work...
 
--   National identification number
 -   Credit card number
 
 ### Haven't even started :(
@@ -87,14 +87,14 @@ ashley_madison %>%
   knitr::kable(format = "markdown")
 ```
 
-| name                 | email                      | phone\_number  |
-|:---------------------|:---------------------------|:---------------|
-| Ula Emard            | <snhptwgvr@zb.cij>         | 268- 273- 6378 |
-| Cody Walter          | <mpifzlvsd@sgvatwzdru.bkz> | 536- 472- 2351 |
-| Georgianna Feil      | <tespuig@ajho.waz>         | 963- 137- 9182 |
-| Antonette Vandervort | <jfmlon@sptubkmwdr.yjl>    | 935- 795- 2857 |
-| Elliot Toy           | <pokzuvywi@zhdouawyip.yof> | 427- 259- 1659 |
-| Refugio Anderson     | <pahi@rahyni.wmv>          | 897- 874- 2865 |
+| name             | email                  | phone\_number  |
+|:-----------------|:-----------------------|:---------------|
+| Kyung Deckow     | <geotfnsx@upzgixw.aqs> | 874- 145- 1924 |
+| Adalberto Hamill | <bec@rbzi.kax>         | 635- 856- 8429 |
+| Destiny Rice     | <hutgo@irtxkac.hny>    | 374- 481- 7152 |
+| Lamar Olson      | <fns@aqzbfwskp.scv>    | 318- 148- 3645 |
+| Virgie Schneider | <sf@tfgm.szd>          | 982- 892- 4129 |
+| Jenae Larkin     | <zthldgs@dua.nbd>      | 981- 861- 9178 |
 
 Detect data containing PII
 --------------------------
