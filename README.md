@@ -70,106 +70,44 @@ If you encounter a clear bug, please file a minimal reproducible example on [git
 API
 ---
 
-### Full Name
+Generate data containing fake PII
+---------------------------------
 
 ``` r
+library(dplyr, warn.conflicts = FALSE)
 library(generator)
+n <- 6
+ashley_madison <- 
+  data.frame(name = r_full_names(n), 
+             email = r_email_addresses(n), 
+             phone_number = r_phone_numbers(n, use_hyphens = TRUE, 
+                                            use_parentheses = TRUE), 
+             stringsAsFactors = FALSE)
+ashley_madison %>% 
+  knitr::kable(format = "markdown")
+```
+
+| name           | email                   | phone\_number  |
+|:---------------|:------------------------|:---------------|
+| Luigi Tromp    | <iearsx@xqntpvmlgd.ybg> | (879)-213-1327 |
+| Nicole Erdman  | <w@qfiuw.ueq>           | (598)-198-7935 |
+| Freida Senger  | <hwt@npzwest.kdz>       | (941)-681-7942 |
+| Mason Hermann  | <j@zdpaule.cor>         | (546)-681-9843 |
+| Jarred Sanford | <huqmeok@lmqd.uhq>      | (546)-645-8927 |
+| Tynisha Lesch  | <oaemi@rpiytegbdk.ryh>  | (287)-249-7526 |
+
+Detect data containing PII
+--------------------------
+
+``` r
 library(detector)
-r_full_names(5)
-#> [1] "Vina McCullough"  "Allen Altenwerth" "Teddy Dibbert"   
-#> [4] "Vella Hickle"     "Tommie Will"
+ashley_madison %>% 
+  detect %>% 
+  knitr::kable(format = "markdown")
 ```
 
-### Home address
-
-``` r
-# To be added
-```
-
-### Email address
-
-``` r
-r_email_addresses(5)
-#> [1] "lycnf@ch.zdv"           "fdwphzqrvb@sznxiek.dfb"
-#> [3] "ozdprjfi@ychzqpjgk.twg" "xyr@fl.ozi"            
-#> [5] "kpstj@bxk.xhk"
-```
-
-### National identification number
-
-``` r
-r_national_identification_numbers(5)
-#> [1] "993-83-6350" "962-63-3630" "977-17-9740" "665-13-9402" "740-92-8287"
-```
-
-### Passport number
-
-``` r
-# To be added
-```
-
-### IP address
-
-``` r
-r_ipv4_addresses(5)
-#> [1] "37.50.236.127"   "98.207.202.224"  "20.111.43.96"    "135.127.206.183"
-#> [5] "185.188.108.36"
-```
-
-### Vehicle registration plate number
-
-``` r
-# To be added
-```
-
-### Driver's license number
-
-``` r
-# To be added
-```
-
-### Credit card number
-
-``` r
-# To be added
-```
-
-### Date of birth
-
-``` r
-r_date_of_births(5)
-#> [1] "1961-11-29" "1939-11-14" "1969-08-30" "1966-07-18" "1997-06-24"
-```
-
-### Birth place
-
-``` r
-# To be added
-```
-
-### Telephone number
-
-``` r
-r_phone_numbers(5)
-#> [1] "4954267164" "6747642153" "2847538794" "7417597219" "2869244598"
-r_phone_numbers(5, use_hyphens = TRUE)
-#> [1] "597-689-6932" "859-136-1983" "243-279-6251" "437-415-6894"
-#> [5] "542-812-1236"
-r_phone_numbers(5, use_hyphens = TRUE, use_parentheses = TRUE)
-#> [1] "(975)-896-2918" "(594)-982-3428" "(795)-493-8762" "(532)-124-1837"
-#> [5] "(927)-219-6481"
-r_phone_numbers(5, use_spaces = TRUE, use_parentheses = TRUE)
-#> [1] "(275) 253 2573" "(536) 798 3981" "(352) 152 8759" "(625) 618 1572"
-#> [5] "(937) 721 4598"
-```
-
-### Latitude and longitude
-
-``` r
-paste0(r_latitudes(5), ", ", r_longitudes(5))
-#> [1] "-44.9766171723604, -139.395375642926"
-#> [2] "87.7084461785853, -162.919728532434" 
-#> [3] "10.4892638325691, -173.305471837521" 
-#> [4] "70.7030830672011, -159.101521018893" 
-#> [5] "-62.2944462765008, 78.6378676537424"
-```
+| column\_name  | has\_email\_addresses | has\_phone\_numbers | has\_national\_identification\_numbers |
+|:--------------|:----------------------|:--------------------|:---------------------------------------|
+| name          | FALSE                 | FALSE               | FALSE                                  |
+| email         | TRUE                  | FALSE               | FALSE                                  |
+| phone\_number | FALSE                 | FALSE               | FALSE                                  |
