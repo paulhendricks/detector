@@ -4,7 +4,7 @@ detector
 
 [![Build Status](https://travis-ci.org/paulhendricks/detector.png?branch=master)](https://travis-ci.org/paulhendricks/detector) [![Build status](https://ci.appveyor.com/api/projects/status/gu5ggnr1i2muw5r3/branch/master?svg=true)](https://ci.appveyor.com/project/paulhendricks/detector/branch/master) [![codecov.io](http://codecov.io/github/paulhendricks/detector/coverage.svg?branch=master)](http://codecov.io/github/paulhendricks/detector?branch=master) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/detector)](http://cran.r-project.org/package=detector) [![Downloads from the RStudio CRAN mirror](http://cranlogs.r-pkg.org/badges/detector)](http://cran.rstudio.com/package=detector) [![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/0.1.0/active.svg)](http://www.repostatus.org/#active)
 
-`detector` makes detecting data containing Personally Identifiable Information quick, easy, and scalable. It provides high-level functions that can take vectors and data.frames and return important summary statistics in a convenient data.frame. Once complete, `detector` will be able to detect the following types of PII:
+`detector` makes detecting data containing [Personally Identifiable Information](https://en.wikipedia.org/wiki/Personally_identifiable_information) (PII) quick, easy, and scalable. It provides high-level functions that can take vectors and data.frames and return important summary statistics in a convenient data.frame. Once complete, `detector` will be able to detect the following types of PII:
 
 -   Full name
 -   Home address
@@ -87,14 +87,14 @@ ashley_madison %>%
   knitr::kable(format = "markdown")
 ```
 
-| name             | email                  | phone\_number  |
-|:-----------------|:-----------------------|:---------------|
-| Kyung Deckow     | <geotfnsx@upzgixw.aqs> | 874- 145- 1924 |
-| Adalberto Hamill | <bec@rbzi.kax>         | 635- 856- 8429 |
-| Destiny Rice     | <hutgo@irtxkac.hny>    | 374- 481- 7152 |
-| Lamar Olson      | <fns@aqzbfwskp.scv>    | 318- 148- 3645 |
-| Virgie Schneider | <sf@tfgm.szd>          | 982- 892- 4129 |
-| Jenae Larkin     | <zthldgs@dua.nbd>      | 981- 861- 9178 |
+| name                 | email                    | phone\_number  |
+|:---------------------|:-------------------------|:---------------|
+| Leonardo Rodriguez   | <xed@be.eny>             | 254- 851- 6814 |
+| Dee Rice             | <ecfoa@rtnlyudbe.yhj>    | 597- 978- 5193 |
+| Conception Marquardt | <wnz@xid.anc>            | 184- 962- 8153 |
+| Collette Nitzsche    | <tqghfxe@fsleqhmnjd.wkh> | 475- 723- 2947 |
+| Norman Pfannerstill  | <oyhl@szxby.mag>         | 153- 674- 4219 |
+| Katelin Gislason     | <vq@zatsl.wyg>           | 831- 847- 1568 |
 
 Detect data containing PII
 --------------------------
