@@ -86,7 +86,7 @@ If you encounter a clear bug, please file a minimal reproducible example on [git
 
 ## API
 
-## Generate data containing fake PII
+### Generate data containing fake PII
 
 ```{r}
 library(dplyr, warn.conflicts = FALSE)
@@ -102,7 +102,7 @@ ashley_madison %>%
   knitr::kable(format = "markdown")
 ```
 
-## Detect data containing PII
+### Detect data containing PII
 
 ```{r}
 library(detector)

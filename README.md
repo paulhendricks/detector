@@ -70,8 +70,7 @@ If you encounter a clear bug, please file a minimal reproducible example on [git
 API
 ---
 
-Generate data containing fake PII
----------------------------------
+### Generate data containing fake PII
 
 ``` r
 library(dplyr, warn.conflicts = FALSE)
@@ -87,17 +86,16 @@ ashley_madison %>%
   knitr::kable(format = "markdown")
 ```
 
-| name                 | email                    | phone\_number  |
-|:---------------------|:-------------------------|:---------------|
-| Leonardo Rodriguez   | <xed@be.eny>             | 254- 851- 6814 |
-| Dee Rice             | <ecfoa@rtnlyudbe.yhj>    | 597- 978- 5193 |
-| Conception Marquardt | <wnz@xid.anc>            | 184- 962- 8153 |
-| Collette Nitzsche    | <tqghfxe@fsleqhmnjd.wkh> | 475- 723- 2947 |
-| Norman Pfannerstill  | <oyhl@szxby.mag>         | 153- 674- 4219 |
-| Katelin Gislason     | <vq@zatsl.wyg>           | 831- 847- 1568 |
+| name            | email                  | phone\_number  |
+|:----------------|:-----------------------|:---------------|
+| Weston Monahan  | <mbpwjdclng@x.mvf>     | 728- 458- 4231 |
+| Elliott Toy     | <yisa@l.dft>           | 539- 478- 3965 |
+| Brunilda Graham | <snfqx@fwo.hsl>        | 348- 316- 5327 |
+| Rutha Ruecker   | <dcaujgst@jqfgbh.voi>  | 274- 187- 3718 |
+| Glendora Jast   | <sea@dnjutc.mcn>       | 748- 485- 9524 |
+| in Rolfson      | <mqvzc@gtbhofzwus.yfg> | 327- 139- 3451 |
 
-Detect data containing PII
---------------------------
+### Detect data containing PII
 
 ``` r
 library(detector)
