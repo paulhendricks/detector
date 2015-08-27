@@ -20,7 +20,5 @@ is_email_address <- function(.x) {
 #' # Examples
 #' @export
 has_email_addresses <- function(.x) {
-  result <- any(is_email_address(.x))
-  if(result) message("E-mail addresses possibly detected.")
-  return(result)
+  return(any(is_email_address(.x)))
 }

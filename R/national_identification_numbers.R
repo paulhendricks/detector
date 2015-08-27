@@ -24,7 +24,5 @@ is_national_identification_number <- function(.x) {
 #' # Examples
 #' @export
 has_national_identification_numbers <- function(.x) {
-  result <- any(is_national_identification_number(.x))
-  if(result) message("National identification numbers possibly detected.")
-  return(result)
+  return(any(is_national_identification_number(.x)))
 }

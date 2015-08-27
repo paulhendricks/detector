@@ -24,7 +24,5 @@ is_phone_number <- function(.x) {
 #' # Examples
 #' @export
 has_phone_numbers <- function(.x) {
-  result <- any(is_phone_number(.x))
-  if(result) message("Phone numbers possibly detected.")
-  return(result)
+  return(any(is_phone_number(.x)))
 }
