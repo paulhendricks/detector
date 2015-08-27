@@ -2,9 +2,4 @@
 
 ## Improvements
 
-* Updated documentation for all functions.
-  
-## Bug fixes
-
-* Implmented early escape clauses for `Orify` and `Andify`.
-
+* Added functions for e-mail addresses, phone numbers, and national identification numbers.
