@@ -8,7 +8,8 @@
 #' is_email_address("hello@@world.edu") # TRUE
 #' @export
 is_email_address <- function(.x) {
-  return(stringr::str_detect(.x, "^[[:alnum:].-]+@[[:alnum:].-]+$"))
+  return(stringr::str_detect(stringr::str_trim(as.character(.x)),
+                             "^[[:alnum:].-]+@[[:alnum:].-]+$"))
 }
 
 #' Test if a character vector has any e-mail addresses.
@@ -19,7 +20,7 @@ is_email_address <- function(.x) {
 #' # Examples
 #' @export
 has_email_addresses <- function(.x) {
-  result <- any(vapply(.x, is_email_address, logical(1)))
+  result <- any(is_email_address(.x))
   if(result) message("E-mail addresses possibly detected.")
   return(result)
 }

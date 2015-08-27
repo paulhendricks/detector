@@ -12,8 +12,8 @@
 #' is_phone_number(1113335555) # TRUE
 #' @export
 is_phone_number <- function(.x) {
-  .x <- stringr::str_trim(as.character(.x))
-  return(stringr::str_detect(.x, "\\d{3}?[.-]? *\\d{3}[.-]? *[.-]?\\d{4}"))
+  return(stringr::str_detect(stringr::str_trim(as.character(.x)),
+                             "\\d{3}?[.-]? *\\d{3}[.-]? *[.-]?\\d{4}"))
 }
 
 #' Test if a character vector has any phone numbers.
@@ -24,7 +24,7 @@ is_phone_number <- function(.x) {
 #' # Examples
 #' @export
 has_phone_numbers <- function(.x) {
-  result <- any(vapply(.x, is_phone_number, logical(1)))
+  result <- any(is_phone_number(.x))
   if(result) message("Phone numbers possibly detected.")
   return(result)
 }

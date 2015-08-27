@@ -12,9 +12,8 @@
 #' is_national_identification_number(1113335555) # FALSE
 #' @export
 is_national_identification_number <- function(.x) {
-  .x <- stringr::str_trim(as.character(.x))
-  return(stringr::str_detect(.x, "^[0-9]{3}-[0-9]{2}-[0-9]{4}$"))
-  # return(stringr::str_detect(.x, "^?!000|666[0-8][0-9]{2}-?!00[0-9]{2}-?!0000[0-9]{4}$"))
+  return(stringr::str_detect(stringr::str_trim(as.character(.x)),
+                             "^[0-9]{3}-[0-9]{2}-[0-9]{4}$"))
 }
 
 #' Test if a character vector has any national identification numbers.
@@ -25,7 +24,7 @@ is_national_identification_number <- function(.x) {
 #' # Examples
 #' @export
 has_national_identification_numbers <- function(.x) {
-  result <- any(vapply(.x, is_national_identification_number, logical(1)))
+  result <- any(is_national_identification_number(.x))
   if(result) message("National identification numbers possibly detected.")
   return(result)
 }
