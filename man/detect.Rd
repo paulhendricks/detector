@@ -36,6 +36,7 @@ Detect if a data object contains PII.
 # atomic vectors
 detect(letters)
 detect(1:10)
+detect(as.Date("2014-01-01"))
 
 # data.frames
 detect(mtcars)

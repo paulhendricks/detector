@@ -17,5 +17,9 @@ Test if a character vector has any phone numbers.
 }
 \examples{
 # Examples
+has_phone_numbers("hello") # FALSE
+has_phone_numbers(65884) # FALSE
+has_phone_numbers("111-333-5555") # TRUE
+has_phone_numbers(1113335555) # TRUE
 }
 

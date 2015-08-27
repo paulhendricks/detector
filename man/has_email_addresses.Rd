@@ -17,5 +17,7 @@ Test if a character vector has any e-mail addresses.
 }
 \examples{
 # Examples
+has_email_addresses("hello") # FALSE
+has_email_addresses("hello@world.edu") # TRUE
 }
 

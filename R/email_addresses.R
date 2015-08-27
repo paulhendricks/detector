@@ -18,6 +18,8 @@ is_email_address <- function(.x) {
 #' @return A logical value indicating if that string has any e-mail addresses.
 #' @examples
 #' # Examples
+#' has_email_addresses("hello") # FALSE
+#' has_email_addresses("hello@@world.edu") # TRUE
 #' @export
 has_email_addresses <- function(.x) {
   return(any(is_email_address(.x)))

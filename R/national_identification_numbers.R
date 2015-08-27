@@ -22,6 +22,11 @@ is_national_identification_number <- function(.x) {
 #' @return A logical value indicating if that string has any national identification numbers.
 #' @examples
 #' # Examples
+#' # Examples
+#' has_national_identification_numbers("hello") # FALSE
+#' has_national_identification_numbers(65884) # FALSE
+#' has_national_identification_numbers("111-33-5555") # TRUE
+#' has_national_identification_numbers(1113335555) # FALSE
 #' @export
 has_national_identification_numbers <- function(.x) {
   return(any(is_national_identification_number(.x)))
