@@ -6,7 +6,6 @@
 \alias{detector-package}
 \title{detector: Detect Data Containing Personally Identifiable Information}
 \description{
-To learn more about detector, start with the vignettes:
-\code{browseVignettes(package = "detector")}
+detector: Detect Data Containing Personally Identifiable Information
 }
 
