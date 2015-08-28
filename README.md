@@ -76,24 +76,29 @@ API
 library(dplyr, warn.conflicts = FALSE)
 library(generator)
 n <- 6
+set.seed(1)
 ashley_madison <- 
   data.frame(name = r_full_names(n), 
+             snn = r_national_identification_numbers(n), 
+             dob = r_date_of_births(n), 
              email = r_email_addresses(n), 
-             phone_number = r_phone_numbers(n, use_hyphens = TRUE, 
-                                            use_spaces = TRUE), 
+             ip = r_ipv4_addresses(n), 
+             phone = r_phone_numbers(n), 
+             credit_card = r_credit_card_numbers(n), 
+             lat = r_latitudes(n), 
+             lon = r_longitudes(n), 
              stringsAsFactors = FALSE)
-ashley_madison %>% 
-  knitr::kable(format = "markdown")
+knitr::kable(ashley_madison, format = "markdown")
 ```
 
-| name            | email                  | phone\_number  |
-|:----------------|:-----------------------|:---------------|
-| Weston Monahan  | <mbpwjdclng@x.mvf>     | 728- 458- 4231 |
-| Elliott Toy     | <yisa@l.dft>           | 539- 478- 3965 |
-| Brunilda Graham | <snfqx@fwo.hsl>        | 348- 316- 5327 |
-| Rutha Ruecker   | <dcaujgst@jqfgbh.voi>  | 274- 187- 3718 |
-| Glendora Jast   | <sea@dnjutc.mcn>       | 748- 485- 9524 |
-| in Rolfson      | <mqvzc@gtbhofzwus.yfg> | 327- 139- 3451 |
+| name                  | snn         | dob        | email                    | ip              | phone      | credit\_card        |          lat|          lon|
+|:----------------------|:------------|:-----------|:-------------------------|:----------------|:-----------|:--------------------|------------:|------------:|
+| Eldridge Pfannerstill | 442-34-5338 | 1991-11-11 | <ntakqojv@lgbcyk.rkv>    | 45.84.71.225    | 6794976958 | 4125-7204-9193-5140 |   -2.7018575|     8.634988|
+| Augustine Homenick    | 799-44-6396 | 1912-06-27 | <iqg@mtcuh.viy>          | 191.116.55.106  | 3275827694 | 2182-5994-2283-9486 |  -70.4148630|   -65.827918|
+| Jennie Runte          | 941-11-5441 | 1983-09-13 | <wjszy@sjhreocvt.gbp>    | 27.128.73.17    | 7419351735 | 4370-4866-4735-7857 |  -45.4091701|   -79.932229|
+| Araceli Kunde         | 290-44-2675 | 1947-07-26 | <uljsnvhfr@qfdkumtn.jkd> | 221.47.229.86   | 3243246285 | 6682-5074-2898-9396 |   -0.2673845|   103.514583|
+| Josue Rau             | 686-88-8446 | 1994-12-10 | <c@lqxzkdpi.nfy>         | 157.136.114.185 | 9169736873 | 4510-3757-4858-5236 |  -22.8839925|    72.886505|
+| Elnora Zemlak         | 212-40-7016 | 1974-10-30 | <capvnl@nympzf.gsk>      | 143.20.199.87   | 3295843196 | 7206-6205-2194-6432 |   78.2444466|  -120.590050|
 
 ### Detect data containing PII
 
@@ -104,8 +109,14 @@ ashley_madison %>%
   knitr::kable(format = "markdown")
 ```
 
-| column\_name  | has\_email\_addresses | has\_phone\_numbers | has\_national\_identification\_numbers |
-|:--------------|:----------------------|:--------------------|:---------------------------------------|
-| name          | FALSE                 | FALSE               | FALSE                                  |
-| email         | TRUE                  | FALSE               | FALSE                                  |
-| phone\_number | FALSE                 | TRUE                | FALSE                                  |
+| column\_name | has\_email\_addresses | has\_phone\_numbers | has\_national\_identification\_numbers |
+|:-------------|:----------------------|:--------------------|:---------------------------------------|
+| name         | FALSE                 | FALSE               | FALSE                                  |
+| snn          | FALSE                 | FALSE               | TRUE                                   |
+| dob          | FALSE                 | FALSE               | FALSE                                  |
+| email        | TRUE                  | FALSE               | FALSE                                  |
+| ip           | FALSE                 | FALSE               | FALSE                                  |
+| phone        | FALSE                 | TRUE                | FALSE                                  |
+| credit\_card | FALSE                 | FALSE               | FALSE                                  |
+| lat          | FALSE                 | TRUE                | FALSE                                  |
+| lon          | FALSE                 | TRUE                | FALSE                                  |
